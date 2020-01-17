@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.js"></script>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+
+    <script type="text/javascript">
+
+
+
+        $(function() {
+            // $.ajax({
+            //     "url": "/queryAllProduct",
+            //     "type": "post",
+            //     "dataType": "json",
+            //     "success": function (result) {
+            //         $(result).each(function () {
+            //             var str = "  <option value='" + this.id + "'>" + this.productName + "</option>"
+            //             $("#out").append(str);
+            //         })
+            //     }
+            // })
+            //
+            // $("#quantity").blur(function () {
+            //     var id = $("#out").val();
+            //     var quantity = $("#quantity").val();
+            //     $.ajax({
+            //         "url": "/queryQuantityById",
+            //         "data": {"id": id},
+            //         "type": "post",
+            //         "dataType": "text",
+            //         "success": function (result) {
+            //             if (result < quantity) {
+            //                 $("#ss").html("库存数量为" + result)
+            //                 $("#kucun111").html("<input type=\"hidden\" value='"+result+"' id=\"aaa\" />")
+            //
+            //             }else{
+            //                 $("#ss").html("");
+            //                 $("#kucun111").html("<input type=\"hidden\" value='"+result+"' id=\"aaa\" />")
+            //             }
+            //         }
+            //     })
+            // })
+            //
+            // $("#tijiao").click(function () {
+            //     var quantity = $("#quantity").val();
+            //     var handler = $("#handler").val();
+            //     var productId = $("#out").val();
+            //     var kuc = $("#aaa").val();
+            //
+            //     var r = /^\+?[1-9][0-9]*$/;
+            //
+            //     if (productId==null || productId==""){
+            //         alert("请选择商品")
+            //     }else if (quantity==null || quantity==""){
+            //         alert("请输入数量")
+            //     }else if(handler==null || handler==""){
+            //         alert("请输入经手人")
+            //     }else if(!r.test(quantity)){
+            //         alert("商品数量请输入正整数")
+            //     }else if(kuc<quantity){
+            //         alert("商品库存不足")
+            //     }else{
+            //         $.ajax({
+            //             "url": "/addTakeout",
+            //             "data":{"quantity":quantity,"handler":handler,"productId":productId},
+            //             "type": "post",
+            //             "dataType": "text",
+            //             "success": function (result) {
+            //                 if (result>0){
+            //                     var q = kuc-quantity;
+            //                     $.ajax({
+            //                         "url": "/updateProduct",
+            //                         "data":{"id":productId,"quantity":q},
+            //                         "type": "post",
+            //                         "dataType": "text",
+            //                         "success":function (result) {
+            //                             if (result>0){
+            //                                 alert("添加成功!")
+            //                                 window.location="/aa.html"
+            //                             }
+            //                         }
+            //                     })
+            //                 }else{
+            //                     alert("添加失败")
+            //                     window.location="/aa.html"
+            //                 }
+            //
+            //             }
+            //         })
+            //     }
+            // });
+
+            $("#tiwen").click(function () {
+                    var tiwen1 = $("#quantity").val();
+                    if (tiwen1 == null || tiwen1 == ""){
+                        alert("请输入提问内容");
+                    }else {
+                        $.ajax({
+                            "url": "/wenti",
+                            "data": {"tiwen1": tiwen1},
+                            "type": "post",
+                            "dataType": "text",
+                            "success": function (result) {
+
+                                if (result!=null||result!=""){
+
+                                        $("#handler").html(result)
+
+
+                                }
+                            }
+                        })
+                    }
+            });
+        })
+
+        //小可爱
+
+    </script>
+    <style>
+        .login_cont dd {
+            margin-bottom: 12px;
+        }
+        .login_input {
+            width: 202px;
+            height: 27px;
+            border: #D0D0D0 solid 1px;
+            position: relative;
+        }
+        .login_input span {
+            padding: 0 5px;
+            line-height: 27px;
+            color: #A9A9A9;
+            display: block;
+            height: 27px;
+            margin-bottom: -27px;
+        }
+        .login_input input {
+            height: 27px;
+            line-height: 27px\9;
+            border: none;
+            background: none;
+            width: 192px;
+            padding: 0 5px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<!--<strong >添加学生信息</strong>-->
+
+<!--<div>提问:&nbsp;&nbsp;&nbsp;<input type="text" id="quantity"/><a style="color:red" id="ss"></a></div><br>-->
+
+<!--<div >回答:&nbsp;&nbsp;&nbsp;<div id="handler"></div></div><br>-->
+
+<!--<input type="button" value="提交" id="tiwen" />-->
+
+<!--<div id="kucun111"></div>-->
+
+<dl class="login_from">
+    <dd class="login_input">
+
+        <input type="text" ></dd>
+    <dd class="login_input">
+        <span>请输入密码</span>
+        <input type="password"></dd>
+    <dd>
+        <input type="button" value="登陆" class="login_btn">
+        <label for="c1" class="next_autologin">
+            <input type="checkbox" id="c1">
+            <span>下次自动登陆</span>
+        </label>
+    </dd>
+    <dd>
+        <a href="#" class="login_link">忘记密码</a>
+        <a href="#" class="login_link">立即注册</a>
+    </dd>
+</dl>
+
+
+<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+
+<script type="text/javascript">
+    L2Dwidget.init({
+        "model": {
+            //jsonpath控制显示那个小萝莉模型，下面这个就是我觉得最可爱的小萝莉模型
+            jsonPath: "https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json",
+            "scale": 1
+        },
+        "display": {
+            "position": "right", //看板娘的表现位置
+            "width": 100,  //小萝莉的宽度
+            "height": 200, //小萝莉的高度
+            "hOffset": 0,
+            "vOffset": -20
+        },
+        "mobile": {
+            "show": true,
+            "scale": 0.5
+        },
+        "react": {
+            "opacityDefault": 0.7,
+            "opacityOnHover": 0.2
+        }
+    });
+</script>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+
+
+
+
+</body>
+</html>

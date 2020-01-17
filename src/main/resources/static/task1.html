@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>助力学习管理系统</title>
+<!--    引入富文本编辑器-->
+
+<!--    引入js-->
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<!--    <script src="ckeditor/ckeditor.js"></script>-->
+
+
+
+    <style type="text/css">
+    /*设置顶层框*/
+    #top{
+        /*固定定位*/
+        position:fixed;
+        z-index: 10;
+        left: 0px;
+        top: 0px;
+
+        border: #000000;
+        background: #3076b1;
+        width: 1332px;
+        height: 60px;
+        margin-left: 190px;
+        margin-top: -7px;
+        margin-right: -500px;
+        overflow: hidden;
+        float: right;
+    }
+    #top ul{
+        margin-left: 70px;
+    }
+    /*设置对齐 边距*/
+    #top ul li{
+        /*列表类型*/
+        list-style-type: none;
+        /*边界*/
+        /*内边距*/
+        padding: 0;
+        margin-top: 6px;
+        float: left;
+        width: 100px;
+    }
+
+    #title{
+        /*固定定位*/
+        position:fixed;
+        z-index: 10;
+        left: 0px;
+        top: 0px;
+
+        border: #000000;
+        background: #3076b1;
+        width: 215px;
+        height: 60px;
+        margin-left: -7px;
+        margin-top: -7px;
+        overflow: hidden;
+        float: left;
+    }
+    #title ul{
+        position:fixed;
+        z-index: 10;
+        left: -25px;
+        top: 0px;
+
+        margin-top: 14px;
+        margin-right: 0px;
+        list-style-type: none;
+    }
+    #bigtitle{
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    /*设置top右侧*/
+    #user {
+        /*固定定位*/
+        position:fixed;
+        z-index: 10;
+        right: 0px;
+        top: 0px;
+
+        border: #000000;
+        background: #3076b1;
+        height: 50px;
+        margin-right: 50px;
+        margin-top: -7px;
+        overflow: hidden;
+        float: left;
+    }
+    #user ul li{
+        /*列表类型*/
+        list-style-type: none;
+        /*边界*/
+        /*内边距*/
+        padding: 0;
+        margin-top: 6px;
+        float: left;
+        width: 100px;
+    }
+
+    /*设置主题*/
+    #bodys{
+        position: absolute;
+        z-index: 1;
+        left: 190px;
+        top: 45px;
+        width: 88%;
+        display:inline-block;
+        background: #eeeeee;
+
+        border-style: none none none solid;
+        border-left-width: 1px;
+        border-left-color: #a7acaf;
+    }
+    #bodys_1{
+        position: relative;
+        width: auto;
+        height: auto;
+        background: white;
+        margin: 30px 30px 20px 30px;
+        padding: 5px;
+
+    }
+    #bodys_1 ul{
+        /*列表类型*/
+        list-style-type: none;
+    }
+    #bodys_1 ul li{
+        /*列表类型*/
+        height: 30px;
+    }
+
+    /*屏幕放条线*/
+    #shuxian{
+        /*固定定位*/
+        position:fixed;
+        z-index: 10;
+        left: 0px;
+        top: 0px;
+
+        background: #000000;
+        width: 1px;
+        height: 1300px;
+        margin-left: 190px;
+        margin-top: 0px;
+        margin-right: -500px;
+        overflow: hidden;
+        float: right;
+    }
+
+    /*设置新增*/
+    #addTask{
+        position: fixed;
+        z-index: 10;
+        left: 0px;
+        width: 189px;
+        height: 88px;
+        margin-top: 45px;
+        background: white;
+    }
+    #addTask ul{
+        list-style-type: none;
+        background: #008cd5;
+        margin-top: 28px;
+        margin-left: 40px;
+        width: 55px;
+        height: 40px;
+        border-radius: 5px 5px 5px 5px;
+    }
+    #addTask ul li{
+        margin-top: 10px;
+        margin-left: -25px;
+        /*字体高度*/
+        line-height: 40px;
+    }
+
+
+
+    /*设置左侧*/
+    #left{
+        /*绝对定位*/
+        position: fixed;
+        z-index: 10;
+        margin-top: 130px;
+        margin-left: -30px;
+        border: #131313;
+        width: 212px;
+        height: auto;
+        float: left;
+        background-color: white;
+    }
+    #left ul{
+        background-color: #FF0000;
+    }
+
+    #left ul li{
+        /*列表类型*/
+        list-style-type: none;
+        /*边界*/
+        margin-top: 0px;
+        margin-left: -16px;
+        /*内边距*/
+        padding: 10px;
+        height: 24px;
+        float: left;
+        width: 168px;
+        /*文字水平居中*/
+        text-align:center;
+        /*文字高度*/
+        line-height: 28px;
+        font-size: 14px;
+        /*超出部分以...显示*/
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
+
+    }
+
+    /*鼠标移过变色*/
+    #left ul li:hover{
+        background: #ccddff;
+        /*color:;*/
+    }
+    /*    缩进              字体大小*/
+    h1{text-indent: 20px; font-size:18px}
+        /*鼠标变手 cursor:pointer;*/
+    .a:hover{
+        cursor:pointer;
+        }
+    b:hover{
+        cursor:pointer;
+    }
+    .left_style{
+        background: #e6f8ff;
+    }
+    #big_title{
+        font-size: 25px;
+    }
+    #min_text{
+         font-size: 12px;
+         color: #a1a1a1;
+     }
+    #jiahei{
+        font-size: 35px;
+        font-weight: 600;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+<div id="chuxian">
+
+</div>
+
+<div id="title" >
+    <ul>
+        <li><a id="bigtitle" style="color: white">助力学习管理系统</a></li>
+    </ul>
+</div>
+
+<div id="top">
+    <ul>
+        <li><a id="" class="a" style="color: #D8D8D8">首  页</a></li>
+        <li><a id="" class="a" style="color: #D8D8D8">实习考核</a></li>
+        <li><a id="" class="a" style="color: #D8D8D8">实习周报</a></li>
+        <li><a id="" class="a" style="color: #D8D8D8">&nbsp;&nbsp;个人中心</a></li>
+        <li><a id="" class="a" style="color: #ffffff">&nbsp;&nbsp;&nbsp;实习课题</a></li>
+    </ul>
+</div>
+<div id="user">
+    <ul>
+        <li id="exit">
+            <a id="tiaozhuan" style="color: white">赵文博</a>
+            <a id="" style="color: white">|</a>
+            <a id="exit_1>" style="color: white"></a>
+        </li>
+    </ul>
+</div>
+
+<div id="addTask">
+    <ul>
+        <li><a style="color: white">新增课题</a></li>
+    </ul>
+</div>
+<div id="left">
+    <ul id="left_ul">
+
+    </ul>
+</div>
+
+<div id="bodys">
+    <div id="bodys_1">
+
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+        function bb(){
+           var id = $(".left_style").attr("id")
+
+            $.ajax({
+                "url": "/queryContentById",
+                "data":{"id":id},
+                "type": "post",
+                "dataType": "json",
+                "success":function (result) {
+                   $(result).each(function () {
+                       var str = "" +
+                           "<ul>" +
+                           "<li id=\"min_text\">学习天数："+this.days+"天&emsp;|&emsp;技能分类："+this.sort+"&emsp;|&emsp;技能类型："+this.type+"</li>\n" +
+                           "<li>学习目标：<br>"+this.target+"</li><br><br>\n" +
+                           "   技能描述：<br><br>\n" +
+                           "  <a >"+this.depict+"</a><br><br>\n" +
+                           "</ul>";
+                       $("#bodys_1").append(str)
+                   });
+                }
+            })
+
+            $("#left_ul li").unbind('click').click(function () {
+                //删除其他的class
+                $(this).siblings().removeClass("left_style");
+                $(this).addClass("left_style");
+                $("#bodys_1").html("<ul><li id='big_title'>"+$(this).text()+"</li></ul>")
+
+                bb();
+            });
+        }
+
+        //页面加载发送请求——只一次
+            $.ajax({
+                "url": "localhost:8080/taskList",
+                "type": "get",
+                "dataType": "json",
+                "success": function (result) {
+                    if (result!=null){
+                        $(result).each(function () {
+                            var str ="";
+                            if(this.id==1){
+                                str += "<li id='"+this.id+"' class='left_style'><a id='' class='a'>"+this.taskName+"</a></li>"
+                                $("#bodys_1").html("<ul><li id='big_title'>"+this.taskName+"</li></ul>")
+                            }else{
+                                str += "<li id='"+this.id+"' class=''><a id='' class='a'>"+this.taskName+"</a></li>"
+
+                            }
+                            $("#left_ul").append(str);
+                        })
+
+                        bb()
+                    }else {
+                        alert("程序出错或暂时没有课题记录，请稍后再试。")
+                        window.location="";
+                    }
+
+                }
+
+            });
+
+
+            //增加课题
+        $("#addTask").click(function () {
+
+            window.location = "ueditor/addTask.html"
+        });
+
+
+    });
+</script>
+
+</body>
+</html>
+

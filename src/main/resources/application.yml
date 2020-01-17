@@ -1,0 +1,34 @@
+
+#配置oracle数据源
+#spring:
+#  datasource:
+#    #url默认
+#    url: jdbc:oracle:thin:@localhost:1521:oracle
+#    #oracle数据库驱动
+#    username: SCOTT
+#    password: Ww123456
+#    driver-class-name: oracle.jdbc.OracleDriver
+#配置mysql数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/task?allowMultiQueries=true
+    username: root
+    password: 111111
+#静态资源访问
+
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+  #配置mybatis的信息
+mybatis:
+  type-aliases-package: com.example.oraclemybatis.pojo
+  mapper-locations: classpath:/mapper/**
+
+#配置日志信息
+logging:
+  config: classpath:logback-spring.xml
+  file: D:/logDemo/a.log
+
+#
+

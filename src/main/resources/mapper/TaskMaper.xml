@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.oraclemybatis.dao.TaskMapper">
+    <select id="queryAllTask" resultType="Task">
+        select * from task_title
+    </select>
+
+    <insert id="addTask" parameterType="Task">
+        insert into task_title (taskName)
+        values(#{taskName})
+    </insert>
+
+
+
+
+
+    <delete id="deleteUser" >
+        delete from students where sid=#{id}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update students set name=#{name},sex=#{sex} where sid=#{sid}
+    </update>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.oraclemybatis.dao.ContentMapper">
+
+    <select id="queryContentByID" resultType="Content" parameterType="java.lang.Integer">
+        select * from task_content where title_id = #{id}
+    </select>
+
+    <insert id="addContent" parameterType="Content">
+        insert into task_content (title_id,days,sort,type,target,depict)
+        values(last_insert_id(),#{days},#{sort},#{type},#{target},#{depict})
+    </insert>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+2     delete from music_favorite where id = #{id,jdbcType=INTEGER};
+3     delete from music_favorite_song where f_id = #{id,jdbcType=INTEGER};
+4   </delete>
+
+
+
+</mapper>
